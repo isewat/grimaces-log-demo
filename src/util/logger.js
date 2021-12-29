@@ -1,11 +1,14 @@
 export const logger = (function () {
-  let godMode = false;
+  let enabled = false;
   return {
-    setGodMode: (mode) => {
-      godMode = mode;
+    enable: () => {
+      enabled = true;
+    },
+    disable: () => {
+      enabled = false;
     },
     log: (input) => {
-      if (godMode) {
+      if (enabled) {
         console.log(input);
       }
     },

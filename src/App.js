@@ -1,14 +1,22 @@
-import logo from "./logo.svg";
 import "./App.css";
-import { UserContext, UserContextProvider } from "./context/UserContext";
+import { UserContextProvider } from "./context/UserContext";
+import { RouteContext, RouteContextProvider } from "./context/RouteContext";
 import Test from "./screens/Test";
+import Test2 from "./screens/Test2";
 
 function App() {
   return (
     <UserContextProvider>
       <div className="App">
+        {/* <Test /> */}
         <div style={{ margin: "20px auto" }}>
-          <Test />
+          <RouteContextProvider>
+            <RouteContext.Consumer>
+              {({ route }) => {
+                return <>{route === 0 ? <Test /> : <Test2 />}</>;
+              }}
+            </RouteContext.Consumer>
+          </RouteContextProvider>
         </div>
       </div>
     </UserContextProvider>

@@ -8,9 +8,9 @@ export const UserContextProvider = ({ children }) => {
 
   const changeUser = (newUser) => {
     if (newUser === "god") {
-      logger.setGodMode(true);
+      logger.enable();
     } else {
-      logger.setGodMode(false);
+      logger.disable();
     }
     setUser(newUser);
   };
