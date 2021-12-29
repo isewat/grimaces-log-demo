@@ -13,7 +13,7 @@ function App() {
           <RouteContextProvider>
             <RouteContext.Consumer>
               {({ route }) => {
-                return <>{route === 0 ? <Test /> : <Test2 />}</>;
+                return route === 0 ? <Test /> : <Test2 />;
               }}
             </RouteContext.Consumer>
           </RouteContextProvider>
